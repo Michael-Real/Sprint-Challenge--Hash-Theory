@@ -7,15 +7,11 @@ both `antelope` and `antelopes`.)
 
 * Single regex that matches either of these:
 
-    antelope rocks out
-    
-    antelopes rock out
+/antelopes?\srocks?\sout/
 
 * Regex that matches either of:
 
-    goat
-    
-    moat
+/[gm]oat/
 
   but not:
 
@@ -25,13 +21,7 @@ both `antelope` and `antelopes`.)
   month and day can each be 1-2 digits). This does not need to verify the date
   is correct (e.g 3333-33-33 can match).
 
-  2000-10-12
-  
-  1999-1-20
-  
-  1999-01-20
-  
-  812-2-10
+/\d{0,5}\-\d{0,3}-\d\d/
 
 ## State Machines
 
@@ -66,6 +56,10 @@ both `antelope` and `antelopes`.)
     cursor position should accept any digits for the row and column. The
     bold sequence need only accept `1` (and is a trivial regex). (ESC is
     a single character which can be represented with `\e` in the regex.)
+
+    /\e\[[0-9]*;[0-9]*f/
+    
+    /\e[1m/
 
   * Draw a state machine diagram for a VT-100 that can consume regular
     character sequences as well as the two above ESC sequences.
